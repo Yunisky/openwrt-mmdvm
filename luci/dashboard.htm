@@ -1,0 +1,52 @@
+<%#
+Copyright 2019-2020 Michael BD7MQB <bd7mqb@qq.com>
+This is free software, licensed under the GNU GENERAL PUBLIC LICENSE, Version 2.0
+-%>
+<%
+local uci = require("luci.model.uci").cursor()
+local sys = require("luci.sys")
+local callsign = uci:get("mmdvm", "General", "Callsign") or "-"
+local dmrid = uci:get("mmdvm", "General", "Id") or "-"
+local rx = uci:get("mmdvm", "Info", "RXFrequency") or "-"
+local tx = uci:get("mmdvm", "Info", "TXFrequency") or "-"
+local bm = uci:get("mmdvm", "DMR_Network", "Address") or "-"
+local bm_on = (sys.call("pgrep -f MMDVMHost >/dev/null") == 0)
+-%>
+<%+header%>
+<link rel="stylesheet" href="<%=resource%>/mmdvm.css">
+
+<div class="mmdvm-cards">
+  <div class="mmdvm-card"><div class="k">Callsign</div><div class="v"><%=callsign%></div></div>
+  <div class="mmdvm-card"><div class="k">DMRID</div><div class="v"><%=dmrid%></div></div>
+  <div class="mmdvm-card"><div class="k">RX / TX</div><div class="v"><%=rx%> / <%=tx%></div></div>
+  <div class="mmdvm-card"><div class="k">BM Server</div><div class="v"><%=bm%></div></div>
+  <div class="mmdvm-card"><div class="k">MMDVMHost</div><div class="v <%=bm_on and 'ok' or 'bad'%>"><%=bm_on and 'RUNNING' or 'STOPPED'%></div></div>
+</div>
+
+<div id="mmdvm-dashboard-body">
+  <% luci.template.render("mmdvm/lastheard", {lastheard = lastheard} ) %>
+</div>
+
+<% if luci.model.mmdvm.pocsag_enabled() then %>
+<h2><%:DAPNET Gateway Activity%></h2>
+<div id="lp"></div>
+<script type="text/javascript">
+//<![CDATA[
+  XHR.poll(5, '<%=luci.dispatcher.build_url("mmdvm", "lastpocsag")%>', null, function(x){
+    if (!x || !x.responseText || x.responseText == "") return;
+    document.getElementById("lp").innerHTML = x.responseText;
+  });
+//]]>
+</script>
+<% end %>
+
+<script type="text/javascript">
+//<![CDATA[
+  XHR.poll(1.5, '<%=luci.dispatcher.build_url("mmdvm", "lastheard")%>', null, function(x){
+    if (!x || !x.responseText || x.responseText == "") return;
+    document.getElementById("mmdvm-dashboard-body").innerHTML = x.responseText;
+  });
+//]]>
+</script>
+
+<% luci.template.render("mmdvm/footer")%>

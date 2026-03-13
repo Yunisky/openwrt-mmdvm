@@ -1,0 +1,11 @@
+d05f6c0d2c802ebc78e00b1e51164e60a50e781ac3244d0f8c79cf32415f4c15  /home/openwrt/openwrt/output-mmdvm-mt3000/dapnet-gateway_1.3.0-0_aarch64_cortex-a53.ipk
+bb1c3288ab96e5a25c80eb9397eba89beb46ead5cc326e11be44cb2ea8924948  /home/openwrt/openwrt/output-mmdvm-mt3000/ircddb-gateway_1.3.1-1_aarch64_cortex-a53.ipk
+179fa3f7a0c431363bebb942624fb59d8c830c0e513fd90c147bdc2cd9761e5b  /home/openwrt/openwrt/output-mmdvm-mt3000/libmmdvm_1.2.0-1_aarch64_cortex-a53.ipk
+3b2b1be652f68fd26210bee87991db6a9bacb18357e67696925f8efe48f46d05  /home/openwrt/openwrt/output-mmdvm-mt3000/libwxwidgets_3.0-6_aarch64_cortex-a53.ipk
+854483090969dfcba0c4a84b4fc303a4ada625325a6ce02bd69cbb09aad5fde4  /home/openwrt/openwrt/output-mmdvm-mt3000/mmdvm_1.0.7-1_aarch64_cortex-a53.ipk
+57a6c84da9bd631d87e4faf88b35e34dc149c9e2e2f3c3f8ad6aab58842ee4d7  /home/openwrt/openwrt/output-mmdvm-mt3000/mmdvm-host_1.3.2-1_aarch64_cortex-a53.ipk
+c7a4871c0a3e61cc47db5befed1ea7456ee42056de7afcd050481e0a9b58d672  /home/openwrt/openwrt/output-mmdvm-mt3000/mmdvm-luci_1.2.0-4_aarch64_cortex-a53.ipk
+833a594c9dc627fcdc8e71dab2cc2c8ff126fba24798ff2ef6ddef24c1137947  /home/openwrt/openwrt/output-mmdvm-mt3000/mmdvm-luci-i18n-zh-cn_1.2.0-4_all.ipk
+d33714728856a8bebb51a2d68ce17c1258f062194bfe4d332e4302b2c16f2dcf  /home/openwrt/openwrt/output-mmdvm-mt3000/nxdn-clients_1.3.0-1_aarch64_cortex-a53.ipk
+098585f7ed81e4daac9140032afb36290c7cd775593717facbf804e09a2074f7  /home/openwrt/openwrt/output-mmdvm-mt3000/p25-clients_1.3.0-2_aarch64_cortex-a53.ipk
+670494f51966eb34b1be4556ca8cbddd4ae2f496f3ef1d9ea5d2fad9446c58f5  /home/openwrt/openwrt/output-mmdvm-mt3000/ysf-clients_1.3.0-1_aarch64_cortex-a53.ipk

@@ -1,0 +1,21 @@
+#!/bin/sh /etc/rc.common
+START=18
+USE_PROCD=1
+
+start_service() {
+  logger -t mmdvm "dmrid-update-onboot: start"
+  [ -x /usr/bin/update-dmrids.sh ] || exit 0
+
+  # wait network up to ~120s
+  i=0
+  while [ $i -lt 60 ]; do
+    if ubus call network.interface.wan status 2>/dev/null | grep -q '"up": true'; then
+      break
+    fi
+    sleep 2
+    i=$((i+1))
+  done
+
+  /usr/bin/update-dmrids.sh >/tmp/update-dmrids.onboot.log 2>&1
+  logger -t mmdvm "dmrid-update-onboot: done"
+}
